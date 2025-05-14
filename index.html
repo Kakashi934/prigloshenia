@@ -1,211 +1,180 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>С Днём Рождения, Дана!</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Georgia', serif;
-            background: #1a1a1a; /* Тёмно-серый фон */
-            color: #fff; /* Белый текст */
-            overflow-x: hidden;
-            position: relative;
-        }
-        h1 {
-            text-align: center;
-            color: #ADD8E6; /* Светло-голубой */
-            margin-top: 30px;
-            font-size: 3.5em;
-            text-shadow: 2px 2px #888;
-            animation: fadeIn 2s ease-in-out;
-        }
-        p {
-            text-align: center;
-            font-size: 1.5em;
-            color: #B0E0E6; /* Светлый голубой */
-            animation: fadeIn 2s ease-in-out;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: fadeIn 3s ease-in-out;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border: 5px solid #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            filter: grayscale(100%);
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
+  <meta charset="UTF-8">
+  <title>НЕ СПАТЬ!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #00ffcc;
+      text-align: center;
+      padding: 40px;
+      animation: glow 3s infinite alternate;
+    }
 
-        /* Анимация */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+    h1 {
+      font-size: 4em;
+      margin-bottom: 0.2em;
+      color: #ff0066;
+    }
 
-        /* Обратный отсчёт */
-        .countdown {
-            text-align: center;
-            font-size: 2em;
-            color: #fff;
-            margin-top: 50px;
-            animation: fadeIn 3s ease-in-out;
-        }
+    h2 {
+      margin-top: 0;
+      font-size: 2em;
+      color: #ffcc00;
+    }
 
-        .modal {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-        }
-        .modal-content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .modal-content h2 {
-            margin-bottom: 20px;
-            color: #000;
-        }
-        .modal-content button {
-            padding: 10px 20px;
-            background: #000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .modal-content button:hover {
-            background: #444;
-        }
+    .clock {
+      font-size: 2em;
+      color: #00ffff;
+    }
 
-        .wishes {
-            color: #ccc;
-            font-style: italic;
-            animation: fadeIn 4s ease-in-out;
-        }
+    .countdown {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
 
-        /* Анимация губы */
-        .lips-animation {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: lipsMove 2s infinite alternate;
-        }
-        @keyframes lipsMove {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            100% { transform: translate(-50%, -50%) scale(1.2); }
-        }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+    }
 
-        /* Анимация падающих сердечек */
-        @keyframes hearts {
-            0% { top: -10%; opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
+    .note {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 1.2em;
+    }
 
-        .hearts {
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2em;
-            animation: hearts 5s linear infinite;
-        }
-        .hearts span {
-            position: absolute;
-            animation: hearts 2s linear infinite;
-            color: #ff69b4;
-            z-index: 999;
-        }
-    </style>
+    .chat-container {
+      margin-top: 50px;
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: white;
+    }
+
+    #chat-box {
+      height: 200px;
+      overflow-y: auto;
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+      text-align: left;
+    }
+
+    input, button {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      margin: 5px;
+    }
+
+    input {
+      width: 35%;
+    }
+
+    #msg {
+      width: 45%;
+    }
+
+    button {
+      background-color: #00ffcc;
+      color: black;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00ccaa;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="modal" id="greetingModal">
-        <div class="modal-content">
-            <h2>С Днём Рождения, Дана!</h2>
-            <p>Сияй как солнце и будь счастлива каждый день! 🌸</p>
-            <button onclick="closeModal()">Спасибо!</button>
-        </div>
-    </div>
+  <h1>НЕ СПАТЬ!</h1>
+  <h2>Завтра урок 😈</h2>
 
-    <h1>С Днём Рождения, Дана!</h1>
-    <p>Ты замечательная! Желаю счастья, улыбок и любви!</p>
+  <div class="clock" id="clock">00:00:00</div>
 
-    <p class="wishes">Пусть сбудутся все твои мечты! Пусть твоя жизнь будет яркой и счастливой! Желаю удачи, здоровья и много радостных моментов!</p>
-    <p class="wishes">Пусть каждый день приносит новые возможности и вдохновение! Ты достойна самого лучшего! 💖</p>
-    <p class="wishes">Пусть этот день принесёт тебе море счастья и радости! Мы все тебя очень любим! 🎉</p>
+  <div class="countdown" id="countdown">До каникул: ...</div>
 
-    <!-- Добавление анимации сердечек -->
-    <div class="hearts">
-        <span>💖</span>
-        <span>💖</span>
-        <span>💖</span>
-        <span>💖</span>
-        <span>💖</span>
-    </div>
+  <div class="note">🧠 Придумай отмазку на утро... пока не поздно!</div>
 
-    <div class="gallery">
-        <img src="photo1.jpg" alt="Фото 1">
-        <img src="photo2.jpg" alt="Фото 2">
-        <img src="photo3.jpg" alt="Фото 3">
-    </div>
+  <div class="chat-container">
+    <h2>💬 Чат "НЕ СПЯЩИХ"</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="name" placeholder="Твоё имя">
+    <input type="text" id="msg" placeholder="Сообщение">
+    <button onclick="sendMessage()">Отправить</button>
+  </div>
 
-    <!-- Обратный отсчёт -->
-    <div class="countdown" id="countdown">
-        Обратный отсчёт до 7 мая: <span id="timer"></span>
-    </div>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('ru-RU');
+      document.getElementById("clock").textContent = timeStr;
+    }
 
-    <!-- Анимация губы -->
-    <div class="lips-animation">
-        <img src="lips.gif" alt="Губы" width="50" height="50">
-    </div>
+    function updateCountdown() {
+      const now = new Date();
+      const summerBreak = new Date(now.getFullYear(), 5, 1); // 1 июня
+      const diff = summerBreak - now;
 
-    <script>
-        function closeModal() {
-            document.getElementById('greetingModal').style.display = 'none';
-        }
+      if (diff <= 0) {
+        document.getElementById("countdown").textContent = "КАНИКУЛЫ УЖЕ НАЧАЛИСЬ! 🎉";
+        return;
+      }
 
-        // Обратный отсчёт до 7 мая
-        const countdownDate = new Date("May 7, 2025 00:00:00").getTime();
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+      document.getElementById("countdown").textContent =
+        `До каникул: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+    }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Чат
+    function sendMessage() {
+      const name = document.getElementById("name").value.trim();
+      const msg = document.getElementById("msg").value.trim();
+      if (!name || !msg) return;
 
-            document.getElementById("timer").innerHTML = days + "д " + hours + "ч " + minutes + "м " + seconds + "с ";
+      const chat = JSON.parse(localStorage.getItem("chat") || "[]");
+      chat.push({ name, msg });
+      localStorage.setItem("chat", JSON.stringify(chat));
+      document.getElementById("msg").value = "";
+      loadChat();
+    }
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("timer").innerHTML = "Время вышло!";
-            }
-        }, 1000);
-    </script>
+    function loadChat() {
+      const chat = JSON.parse(localStorage.getItem("chat") || "[]");
+      const chatBox = document.getElementById("chat-box");
+      chatBox.innerHTML = "";
+      chat.forEach(entry => {
+        const p = document.createElement("p");
+        p.innerHTML = `<strong>${entry.name}:</strong> ${entry.msg}`;
+        chatBox.appendChild(p);
+      });
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    setInterval(updateClock, 1000);
+    setInterval(updateCountdown, 1000);
+    updateClock();
+    updateCountdown();
+    loadChat();
+  </script>
 
 </body>
 </html>
